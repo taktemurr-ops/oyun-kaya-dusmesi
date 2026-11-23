@@ -5,7 +5,6 @@ import 'package:arcade_motoru/kaya.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const kayaId = 'oyun-kaya-dusmesi';
 
@@ -88,7 +87,7 @@ final kayaConfig = GameConfig(
   rules: kayaRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => kayaRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => kayaRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintBoulder(c, s, p, t);
